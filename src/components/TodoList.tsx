@@ -2,17 +2,20 @@ import React from "react";
 
 interface TodoListProps {
   todos: { id: string; text: string }[];
+  todoDeleteHandler: (id: string) => void;
 }
 
 const TodoList: React.FC<TodoListProps> = (props) => {
-  const { todos } = props;
+  const { todos, todoDeleteHandler } = props;
 
   return (
     <ul>
       {todos.map((todo) => (
         <li key={todo.id}>
           <span>{todo.text}</span>
-          <button>Delete</button>
+          <button onClick={todoDeleteHandler.bind(null, todo.id)}>
+            Delete
+          </button>
         </li>
       ))}
     </ul>
