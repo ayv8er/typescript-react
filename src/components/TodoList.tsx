@@ -10,7 +10,10 @@ const TodoList: React.FC<TodoListProps> = (props) => {
   return (
     <ul>
       {todos.map((todo) => (
-        <li key={todo.id}>{todo.text}</li>
+        <li key={todo.id}>
+          <span>{todo.text}</span>
+          <button>Delete</button>
+        </li>
       ))}
     </ul>
   );
